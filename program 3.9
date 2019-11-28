@@ -1,0 +1,36 @@
+
+#include "Account.cpp"
+
+using namespace std;
+
+// constructor
+Account::Account ( int initBalance)
+{
+	if (initBalance >= 0) balance = initBalance;
+	else
+	{
+		balance = 0;
+		cout << "Initial balance was invalid. Set balance to 0" << endl;
+	};
+}
+
+
+// Credit adds amount to current balance
+void Account::credit ( int amount)
+{
+	balance = balance + amount;
+}
+
+// Debit withdraw money from the account
+void Account::debit ( int amount)
+{
+	if (amount <= balance) balance = balance - amount;
+	else
+		cout << "Debit amount exceeded account balance.";
+}
+
+// getBalance
+int Account::getBalance()
+{
+	return balance;
+} 
